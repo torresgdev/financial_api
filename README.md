@@ -74,7 +74,7 @@ npm run dev
 POST /transactions
 ```
 
-<pre> ```json { "title": "salario", "amount": 400, "type": "INCOME or EXPENSE", "category": "Trabalho"} ``` </pre>
+<pre> ```json { "title": "salario", "amount": 400, "type": "INCOME", "category": "Trabalho" } ``` </pre>
 
 🔹 Listar transações
 
@@ -84,10 +84,11 @@ GET /transactions
 
 🔹 Resumo financeiro
 
-````bash
+```bash
 GET /transactions/summary
-```json { "title": 5000, "expense": 1200, "balance": 3800 } ```
-````
+```
+
+<pre> ```json { "title": 5000, "expense": 1200, "balance": 3800 } ``` </pre>
 
 🔹 Atualizar transação
 
