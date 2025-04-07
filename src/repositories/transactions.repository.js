@@ -51,7 +51,7 @@ const remove = async (id) => {
 }
 
 const update = async (id, data) => {
-    const updated = await knex('transaction')
+    const updated = await knex('transactions')
     .where({id})
     .update(data)
     .returning('*')
@@ -59,9 +59,10 @@ const update = async (id, data) => {
     return updated[0];
 };
 
-module.exports ={ 
+module.exports = { 
     create,
     list,
     getSummary,
     remove,
+    update,
 }; 
