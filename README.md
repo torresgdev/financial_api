@@ -86,7 +86,7 @@ GET /transactions
 
 ````bash
 GET /transactions/summary
-<pre> ```json { "title": 5000, "expense": 1200, "balance": 3800 } ``` </pre>
+```json { "title": 5000, "expense": 1200, "balance": 3800 } ```
 ````
 
 🔹 Atualizar transação
