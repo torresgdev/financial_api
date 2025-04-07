@@ -19,6 +19,12 @@ const createTransaction = async ({ title, amount, type, category }) => {
     return newTransaction;
 }
 
+const listTransactions = async (month, year) => {
+    return await transactionRespository.list(month, year);
+};
+
+
 module.exports = { 
     createTransaction,
+    listTransactions,
 };
