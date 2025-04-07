@@ -28,8 +28,19 @@ const summary = async (req, res) => {
     }
 }
 
+const remove = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const result = await transactionService.deleteTransaction(id);
+        return res.json(result);
+    } catch (error) {
+        return res.status(404).json({error: error.message});
+    }
+};
+
 module.exports = {
     create,
     list,
     summary,
+    remove,
 };

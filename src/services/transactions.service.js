@@ -27,9 +27,19 @@ const getSummary = async () => {
     return await transactionRepository.getSummary()
 }
 
+const deleteTransaction = async (id) => {
+    const deleted = await transactionRepository.remove(id);
+
+    if (deleted === 0) {
+        throw new Error('Transaction not found')
+    }
+
+    return { message: 'Transaction deleted with success'}
+}
 
 module.exports = { 
     createTransaction,
     listTransactions,
     getSummary,
+    deleteTransaction,
 };

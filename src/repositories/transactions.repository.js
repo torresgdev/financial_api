@@ -45,8 +45,14 @@ const getSummary = async () => {
     }
 }
 
+const remove = async (id) => {
+    const deleted = await knex('transactions').where({id}).del();
+    return deleted;
+}
+
 module.exports ={ 
     create,
     list,
     getSummary,
+    remove,
 }; 
