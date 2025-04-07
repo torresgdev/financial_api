@@ -50,6 +50,15 @@ const remove = async (id) => {
     return deleted;
 }
 
+const update = async (id, data) => {
+    const updated = await knex('transaction')
+    .where({id})
+    .update(data)
+    .returning('*')
+
+    return updated[0];
+};
+
 module.exports ={ 
     create,
     list,

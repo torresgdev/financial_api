@@ -37,9 +37,33 @@ const deleteTransaction = async (id) => {
     return { message: 'Transaction deleted with success'}
 }
 
+const updateTransaction = async (id, {title, amount, type, category}) => {
+    if (!title || !amount || !type || !category) {
+        throw new Error('All fields are necessary')
+    }
+
+    if(!['INCOME', 'EXPENSE'].includes(type)) {
+        throw new Error('Invalid type: use INCOME or EXPENSE')
+    }
+
+    const updated = await transactionRepository.update(id, {
+        title,
+        amount,
+        type,
+        category,
+    });
+
+    if (!updated) {
+        throw new Error('Transaction not found')
+    }
+
+    return updated;
+}
+
 module.exports = { 
     createTransaction,
     listTransactions,
     getSummary,
     deleteTransaction,
+    updateTransaction,
 };

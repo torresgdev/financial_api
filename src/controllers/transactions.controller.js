@@ -38,9 +38,20 @@ const remove = async (req, res) => {
     }
 };
 
+const update = async (req, res) => {
+    try {
+        const {id} = req.params
+        const transaction = await transactionService.updateTransaction(id, req.body)
+        return res.json(transaction);
+    } catch (error) {
+        return res.status(400).json({error: error.message})
+    }
+}
+
 module.exports = {
     create,
     list,
     summary,
     remove,
+    update,
 };
