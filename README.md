@@ -101,3 +101,17 @@ PUT /transactions/:id
 ```bash
 DELETE /transactions/:id
 ```
+
+📌 Requisitos
+Node 18+
+
+Docker e Docker Compose
+
+🧠 Padrão Clean Architecture
+Separação por camadas:
+
+Controllers: recebem requisições e retornam respostas.
+
+Services: lógica de negócio.
+
+Repositories: acesso ao banco de dados.
