@@ -19,7 +19,17 @@ const list = async (req, res) => {
     }
 }
 
+const summary = async (req, res) => {
+    try {
+        const data = await transactionService.getSummary();
+        return res.json(data)
+    } catch (error) {
+        return res.status(500).jston({error: 'Error could not calculate finances'})
+    }
+}
+
 module.exports = {
     create,
     list,
+    summary,
 };

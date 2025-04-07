@@ -20,11 +20,16 @@ const createTransaction = async ({ title, amount, type, category }) => {
 }
 
 const listTransactions = async (month, year) => {
-    return await transactionRespository.list(month, year);
+    return await transactionRepository.list(month, year);
 };
+
+const getSummary = async () => {
+    return await transactionRepository.getSummary()
+}
 
 
 module.exports = { 
     createTransaction,
     listTransactions,
+    getSummary,
 };

@@ -21,6 +21,30 @@ const list = async (month, year) => {
     return transactions;
 }
 
+const getSummary = async () => {
+    const result = await knex('transactions')
+    .select('type')
+    .sum('amount as total')
+    .groupBy('type');
+
+    let income = 0;
+    let expense = 0;
+
+    result.forEach((item) => {
+        if (item.type === 'INCOME') {
+            income = Number(item.total);
+        } else if (item.type === 'EXPENSE') {
+            expense = Number(item.total)
+        }
+    });
+
+    return {
+        income,
+        expense,
+        balance: income - expense,
+    }
+}
+
 module.exports ={ 
     create,
     list,
