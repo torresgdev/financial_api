@@ -24,7 +24,7 @@ const summary = async (req, res) => {
         const data = await transactionService.getSummary();
         return res.json(data)
     } catch (error) {
-        return res.status(500).jston({error: 'Error could not calculate finances'})
+        return res.status(500).json({error: 'Error could not calculate finances'})
     }
 }
 

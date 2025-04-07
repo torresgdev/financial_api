@@ -48,4 +48,5 @@ const getSummary = async () => {
 module.exports ={ 
     create,
     list,
+    getSummary,
 }; 
