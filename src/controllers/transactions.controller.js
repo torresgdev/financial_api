@@ -9,6 +9,17 @@ const create = async (req, res) => {
     }
 };
 
+const list = async (req, res) => {
+    try {
+        const { month, year} = req.query;
+        const transactions = await transactionService.listTransactions(month, year);
+        return res.json(transactions)
+    } catch (error) {
+        return res.status(500).json({error: 'ERROR could not list transactions'})
+    }
+}
+
 module.exports = {
     create,
+    list,
 };
