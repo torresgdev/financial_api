@@ -26,8 +26,8 @@ src/ ├── controllers/ ├── services/ ├── repositories/ ├─�
 ### 1. Clone o repositório
 
 ```bash
-git clone git@github.com:torresgdev/finance-api.git
-cd finance-api
+git clone git@github.com:torresgdev/financial_api.git
+cd financial_api
 ```
 
 ### 2. Crie o arquivo .env com base no .env.example
